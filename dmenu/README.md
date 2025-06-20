@@ -28,4 +28,6 @@ Running dmenu
 See the man page for details.
 ```
 
+## Changes made to the original software
 
+- Added the [xresources patch](https://tools.suckless.org/dmenu/patches/xresources/) to make my theme based on xresources.
