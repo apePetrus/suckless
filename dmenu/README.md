@@ -1,3 +1,7 @@
+# My fork of suckless' dmenu
+
+## Original README
+```
 dmenu - dynamic menu
 ====================
 dmenu is an efficient dynamic menu for X.
@@ -22,3 +26,6 @@ Afterwards enter the following command to build and install dmenu
 Running dmenu
 -------------
 See the man page for details.
+```
+
+
