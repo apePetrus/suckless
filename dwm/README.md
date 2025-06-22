@@ -55,3 +55,4 @@ and (re)compiling the source code.
 ## Changes to the original software
 
 - Different shortcuts and keymaps;
+- Added xresources patch 
