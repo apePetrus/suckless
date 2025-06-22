@@ -62,13 +62,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmen
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "librewolf", NULL };
 
-/* volume controls */
-static const char *upvol[] = { "amixer", "-q", "sset", "Master", "5%+", NULL };
-static const char *downvol[] = { "amixer", "-q", "sset", "Master", "5%-", NULL };
-static const char *mutevol[] = { "amixer", "-q", "sset", "Master", "toggle", NULL };
-static const char *light_up[] = { "brightnessctl", "s", "5+", NULL };
-static const char *light_down[] = { "brightnessctl", "s", "5-", NULL };
-
 static const Key keys[] = {
 	/* modifier	                 key                        function        argument */
 
@@ -76,11 +69,11 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,	         XK_Return,                 spawn,          {.v = termcmd } },
 
 	/* Brightness and audio */
-	{ MODKEY|ShiftMask,             XK_equal,                  spawn,          {.v = upvol}},
-	{ MODKEY|ShiftMask,             XK_minus,                  spawn,          {.v = downvol}},
-	{ MODKEY|ShiftMask,             XK_m,                      spawn,          {.v = mutevol}},
-	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          {.v = light_up}},
-	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          {.v = light_down}},
+	{ MODKEY|ShiftMask,             XK_equal,                  spawn,          SHCMD("amixer -q sset Master 5%+ ; pkill -RTMIN+10 dwmblocks")},
+	{ MODKEY|ShiftMask,             XK_minus,                  spawn,          SHCMD("amixer -q sset Master 5%- ; pkill -RTMIN+10 dwmblocks")},
+	{ MODKEY|ShiftMask,             XK_m,                      spawn,          SHCMD("amixer -q sset Master toggle ; pkill -RTMIN+10 dwmblocks")},
+	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("brightnessctl s 5+ ; pkill -RTMIN+10 dwmblocks")},
+	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("brightnessctl s 5- ; pkill -RTMIN+10 dwmblocks")},
 
 	/* Common software */
 	{ MODKEY,                       XK_w,                      spawn,          {.v = browsercmd}},
