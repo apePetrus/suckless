@@ -63,11 +63,11 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "librewolf", NULL };
 
 /* volume controls */
-static const char *upvol[] = { "amixer -q sset Master 5%+ ; pkill -RTMIN+10 dwmblocks", NULL };
-static const char *downvol[] = { "amixer -q sset Master 5%- ; pkill -RTMIN+10 dwmblocks", NULL };
-static const char *mutevol[] = { "amixer -q sset Master toggle ; pkill -RTMIN+10 dwmblocks", NULL };
-static const char *light_up[] = { "brightnessctl s 5+ ; pkill -RTMIN+10 dwmblocks", NULL };
-static const char *light_down[] = { "brightnessctl s 5- ; pkill -RTMIN+10 dwmblocks", NULL };
+static const char *upvol[] = { "amixer", "-q", "sset", "Master", "5%+", NULL };
+static const char *downvol[] = { "amixer", "-q", "sset", "Master", "5%-", NULL };
+static const char *mutevol[] = { "amixer", "-q", "sset", "Master", "toggle", NULL };
+static const char *light_up[] = { "brightnessctl", "s", "5+", NULL };
+static const char *light_down[] = { "brightnessctl", "s", "5-", NULL };
 
 static const Key keys[] = {
 	/* modifier	                 key                        function        argument */
