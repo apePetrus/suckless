@@ -70,6 +70,8 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 /* key definitions */
 #define MODKEY Mod4Mask
@@ -107,13 +109,14 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_e,                      spawn,          SHCMD("st -e yazi")},
 	{ MODKEY|ShiftMask,             XK_s,                      spawn,          SHCMD("flameshot gui")},
 	{ MODKEY|ShiftMask,             XK_g,                      spawn,          SHCMD("steam")},
+	{ MODKEY,                       XK_minus,                  togglescratch,  {.v = scratchpadcmd } },
 
 	/* Quit, reboot, shutdown */
 	{ MODKEY|ShiftMask,             XK_e,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to quit?' 'killall dwm'")},
 	{ MODKEY|ShiftMask,             XK_x,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to shutdown the system?' " "'loginctl poweroff'")},
 	{ MODKEY|ShiftMask,             XK_r,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to reboot the system?' " "'loginctl reboot'")},
 
-	/* Emoji dmenu script */
+	/* dmenu scripts */
 	{ MODKEY,                       XK_ccedilla,               spawn,          SHCMD("~/.local/bin/dmenuunicode")},
 
 	{ MODKEY,	                   XK_b,                      togglebar,      {0} },
