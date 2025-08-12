@@ -87,7 +87,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 // static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, NULL };
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-i", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "librewolf", NULL };
 
@@ -110,6 +110,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,                      spawn,          SHCMD("flameshot gui")},
 	{ MODKEY|ShiftMask,             XK_g,                      spawn,          SHCMD("steam")},
 	{ MODKEY,                       XK_minus,                  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("Discord")},
 
 	/* Quit, reboot, shutdown */
 	{ MODKEY|ShiftMask,             XK_e,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to quit?' 'killall dwm'")},
