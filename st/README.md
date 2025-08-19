@@ -40,4 +40,4 @@ Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
 ## Changes to the original software
 
 - Obviously the font and the border size;
-- Also the [xresources patch](https://st.suckless.org/patches/xresources/) to make my theme based on xresources colors.
+- Added [xresources](https://st.suckless.org/patches/xresources/) and anysize patches.
