@@ -55,4 +55,4 @@ and (re)compiling the source code.
 ## Changes to the original software
 
 - Different shortcuts and keymaps;
-- Added following patches: xrdb, swallow
+- Added following patches: xrdb, swallow, vanitygaps, scratchpad and actualfullscreen
