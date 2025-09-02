@@ -117,8 +117,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_x,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to shutdown the system?' " "'loginctl poweroff'")},
 	{ MODKEY|ShiftMask,             XK_r,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to reboot the system?' " "'loginctl reboot'")},
 
-	/* dmenu scripts */
+	/* scripts */
 	{ MODKEY,                       XK_ccedilla,               spawn,          SHCMD("~/.local/bin/dmenuunicode")},
+    { MODKEY,                       XK_c                       spawn           SHCMD("caso-a-ana-quebre-meu-computador.sh")}
 
 	{ MODKEY,	                   XK_b,                      togglebar,      {0} },
 	{ MODKEY,	                   XK_j,                      focusstack,     {.i = +1 } },
