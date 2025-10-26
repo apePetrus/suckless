@@ -40,4 +40,5 @@ Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
 ## Changes to the original software
 
 - Obviously the font and the border size;
-- Added [xresources](https://st.suckless.org/patches/xresources/) and anysize patches.
+- Added [xresources](https://st.suckless.org/patches/xresources/) and anysize patches;
+- Added kitty-graphics-protocol patch.
