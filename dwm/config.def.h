@@ -19,9 +19,9 @@ static const char dmenufont[] = "CaskaydiaCove Nerd Font Mono:pixelsize=15";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
+static char selfgcolor[]            = "#313244";
+static char selbordercolor[]        = "#cba6f7";
+static char selbgcolor[]            = "#cba6f7";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -119,7 +119,7 @@ static const Key keys[] = {
 
 	/* scripts */
 	{ MODKEY,                       XK_ccedilla,               spawn,          SHCMD("~/.local/bin/dmenuunicode")},
-    { MODKEY,                       XK_c                       spawn           SHCMD("caso-a-ana-quebre-meu-computador.sh")}
+    { MODKEY,                       XK_c,                      spawn,          SHCMD("caso-a-ana-quebre-meu-computador.sh")},
 
 	{ MODKEY,	                   XK_b,                      togglebar,      {0} },
 	{ MODKEY,	                   XK_j,                      focusstack,     {.i = +1 } },
