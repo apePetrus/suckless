@@ -95,31 +95,32 @@ static const Key keys[] = {
 	/* modifier	                 key                        function        argument */
 
 	{ MODKEY,	                   XK_p,                      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,	         XK_Return,                 spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,	           XK_Return,                 spawn,          {.v = termcmd } },
 
 	/* Brightness and audio */
-	{ MODKEY|ShiftMask,             XK_equal,                  spawn,          SHCMD("amixer -q sset Master 5%+ ; pkill -RTMIN+10 dwmblocks")},
-	{ MODKEY|ShiftMask,             XK_minus,                  spawn,          SHCMD("amixer -q sset Master 5%- ; pkill -RTMIN+10 dwmblocks")},
-	{ MODKEY|ShiftMask,             XK_m,                      spawn,          SHCMD("amixer -q sset Master toggle ; pkill -RTMIN+10 dwmblocks")},
-	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          SHCMD("brightnessctl s 5+ ; pkill -RTMIN+10 dwmblocks")},
-	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          SHCMD("brightnessctl s 5- ; pkill -RTMIN+10 dwmblocks")},
+	{ MODKEY|ShiftMask,            XK_equal,                  spawn,          SHCMD("amixer -q sset Master 5%+ ; pkill -RTMIN+10 dwmblocks")},
+	{ MODKEY|ShiftMask,            XK_minus,                  spawn,          SHCMD("amixer -q sset Master 5%- ; pkill -RTMIN+10 dwmblocks")},
+	{ MODKEY|ShiftMask,            XK_m,                      spawn,          SHCMD("amixer -q sset Master toggle ; pkill -RTMIN+10 dwmblocks")},
+	{ 0,                           XF86XK_MonBrightnessUp,    spawn,          SHCMD("brightnessctl s 5+ ; pkill -RTMIN+10 dwmblocks")},
+	{ 0,                           XF86XK_MonBrightnessDown,  spawn,          SHCMD("brightnessctl s 5- ; pkill -RTMIN+10 dwmblocks")},
 
 	/* Common software */
-	{ MODKEY,                       XK_w,                      spawn,          {.v = browsercmd}},
-	{ MODKEY,                       XK_e,                      spawn,          SHCMD("st -e yazi")},
-	{ MODKEY|ShiftMask,             XK_s,                      spawn,          SHCMD("flameshot gui")},
-	{ MODKEY|ShiftMask,             XK_g,                      spawn,          SHCMD("steam")},
-	{ MODKEY,                       XK_minus,                  togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY|ShiftMask,             XK_d,                      spawn,          SHCMD("Discord")},
+	{ MODKEY,                      XK_w,                      spawn,          {.v = browsercmd}},
+	{ MODKEY,                      XK_e,                      spawn,          SHCMD("st -e yazi")},
+	{ MODKEY|ShiftMask,            XK_s,                      spawn,          SHCMD("flameshot gui")},
+	{ MODKEY|ShiftMask,            XK_g,                      spawn,          SHCMD("steam")},
+	{ MODKEY,                      XK_minus,                  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY|ShiftMask,            XK_d,                      spawn,          SHCMD("Discord")},
+	{ MODKEY|ShiftMask,            XK_f,                      spawn,          SHCMD("st -e newsboat")},
 
 	/* Quit, reboot, shutdown */
-	{ MODKEY|ShiftMask,             XK_e,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to quit?' 'killall dwm'")},
-	{ MODKEY|ShiftMask,             XK_x,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to shutdown the system?' " "'loginctl poweroff'")},
-	{ MODKEY|ShiftMask,             XK_r,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to reboot the system?' " "'loginctl reboot'")},
+	{ MODKEY|ShiftMask,            XK_e,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to quit?' 'killall dwm'")},
+	{ MODKEY|ShiftMask,            XK_x,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to shutdown the system?' " "'loginctl poweroff'")},
+	{ MODKEY|ShiftMask,            XK_r,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to reboot the system?' " "'loginctl reboot'")},
 
 	/* scripts */
-	{ MODKEY,                       XK_ccedilla,               spawn,          SHCMD("~/.local/bin/dmenuunicode")},
-    { MODKEY,                       XK_c,                      spawn,          SHCMD("caso-a-ana-quebre-meu-computador.sh")},
+	{ MODKEY,                      XK_ccedilla,               spawn,          SHCMD("~/.local/bin/dmenuunicode")},
+    { MODKEY,                      XK_c,                      spawn,          SHCMD("caso-a-ana-quebre-meu-computador.sh")},
 
 	{ MODKEY,	                   XK_b,                      togglebar,      {0} },
 	{ MODKEY,	                   XK_j,                      focusstack,     {.i = +1 } },
@@ -131,21 +132,21 @@ static const Key keys[] = {
 	{ MODKEY,	                   XK_Return,                 zoom,           {0} },
 	{ MODKEY,	                   XK_Tab,                    view,           {0} },
 
-	{ MODKEY|ShiftMask,	         XK_q,                      killclient,     {0} },
+	{ MODKEY|ShiftMask,	           XK_q,                      killclient,     {0} },
 	{ MODKEY,	                   XK_f,                      togglefullscr,  {0} },
 	{ MODKEY,	                   XK_t,                      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,	                   XK_m,                      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,	                   XK_space,                  setlayout,      {0} },
-	{ MODKEY|ShiftMask,	         XK_space,                  togglefloating, {0} },
+	{ MODKEY|ShiftMask,	           XK_space,                  togglefloating, {0} },
 	{ MODKEY,	                   XK_0,                      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,	         XK_0,                      tag,            {.ui = ~0 } },
+	{ MODKEY|ShiftMask,	           XK_0,                      tag,            {.ui = ~0 } },
 
 	/* Navigation between multi monitor setup */
 	{ MODKEY,	                   XK_comma,                  focusmon,       {.i = -1 } },
 	{ MODKEY,	                   XK_period,                 focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,	         XK_comma,                  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,	         XK_period,                 tagmon,         {.i = +1 } },
-    { MODKEY,                       XK_r,                   xrdb,           {.v = NULL } },
+	{ MODKEY|ShiftMask,	           XK_comma,                  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,	           XK_period,                 tagmon,         {.i = +1 } },
+    // { MODKEY,                      XK_r,                      xrdb,           {.v = NULL } },
 
 
 // +	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
