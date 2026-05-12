@@ -44,10 +44,10 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const float mfact = 0.55;       /* factor of master area size [0.05..0.95] */
+static const int   nmaster = 1;        /* number of clients in master area */
+static const int   resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int   lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 #define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
 #include "vanitygaps.c"
@@ -74,7 +74,7 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -95,32 +95,35 @@ static const Key keys[] = {
 	/* modifier	                 key                        function        argument */
 
 	{ MODKEY,	                   XK_p,                      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,	           XK_Return,                 spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,	         XK_Return,                 spawn,          {.v = termcmd } },
 
 	/* Brightness and audio */
-	{ MODKEY|ShiftMask,            XK_equal,                  spawn,          SHCMD("amixer -q sset Master 5%+ ; pkill -RTMIN+10 dwmblocks")},
-	{ MODKEY|ShiftMask,            XK_minus,                  spawn,          SHCMD("amixer -q sset Master 5%- ; pkill -RTMIN+10 dwmblocks")},
-	{ MODKEY|ShiftMask,            XK_m,                      spawn,          SHCMD("amixer -q sset Master toggle ; pkill -RTMIN+10 dwmblocks")},
-	{ 0,                           XF86XK_MonBrightnessUp,    spawn,          SHCMD("brightnessctl s 5+ ; pkill -RTMIN+10 dwmblocks")},
-	{ 0,                           XF86XK_MonBrightnessDown,  spawn,          SHCMD("brightnessctl s 5- ; pkill -RTMIN+10 dwmblocks")},
+	{ MODKEY|ShiftMask,          XK_equal,                  spawn,          SHCMD("amixer -q sset Master 5%+ ; pkill -RTMIN+10 dwmblocks")},
+	{ MODKEY|ShiftMask,          XK_minus,                  spawn,          SHCMD("amixer -q sset Master 5%- ; pkill -RTMIN+10 dwmblocks")},
+	{ MODKEY|ShiftMask,          XK_m,                      spawn,          SHCMD("amixer -q sset Master toggle ; pkill -RTMIN+10 dwmblocks")},
+	{ 0,                         XF86XK_MonBrightnessUp,    spawn,          SHCMD("brightnessctl s 5+ ; pkill -RTMIN+10 dwmblocks")},
+	{ 0,                         XF86XK_MonBrightnessDown,  spawn,          SHCMD("brightnessctl s 5- ; pkill -RTMIN+10 dwmblocks")},
 
 	/* Common software */
-	{ MODKEY,                      XK_w,                      spawn,          {.v = browsercmd}},
-	{ MODKEY,                      XK_e,                      spawn,          SHCMD("st -e yazi")},
-	{ MODKEY|ShiftMask,            XK_s,                      spawn,          SHCMD("flameshot gui")},
-	{ MODKEY|ShiftMask,            XK_g,                      spawn,          SHCMD("steam")},
-	{ MODKEY,                      XK_minus,                  togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY|ShiftMask,            XK_d,                      spawn,          SHCMD("Discord")},
-	{ MODKEY|ShiftMask,            XK_f,                      spawn,          SHCMD("st -e newsboat")},
+	{ MODKEY,                    XK_w,                      spawn,          {.v = browsercmd}},
+	{ MODKEY|ShiftMask,          XK_w,                      spawn,          SHCMD("chromium")},
+	{ MODKEY,                    XK_e,                      spawn,          SHCMD("st -e yazi")},
+	{ MODKEY|ShiftMask,          XK_s,                      spawn,          SHCMD("flameshot gui")},
+	{ MODKEY|ShiftMask,          XK_g,                      spawn,          SHCMD("steam")},
+	{ MODKEY,                    XK_minus,                  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY|ShiftMask,          XK_d,                      spawn,          SHCMD("Discord")},
+	{ MODKEY|ShiftMask,          XK_f,                      spawn,          SHCMD("st -e newsboat")},
+	{ MODKEY|ShiftMask,          XK_t,                      spawn,          SHCMD("qbittorrent")},
+	{ MODKEY|ShiftMask,          XK_k,                      spawn,          SHCMD("keepassxc")},
 
 	/* Quit, reboot, shutdown */
-	{ MODKEY|ShiftMask,            XK_e,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to quit?' 'killall dwm'")},
-	{ MODKEY|ShiftMask,            XK_x,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to shutdown the system?' " "'loginctl poweroff'")},
-	{ MODKEY|ShiftMask,            XK_r,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to reboot the system?' " "'loginctl reboot'")},
+	{ MODKEY|ShiftMask,          XK_e,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to quit?' 'killall dwm'")},
+	{ MODKEY|ShiftMask,          XK_x,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to shutdown the system?' " "'loginctl poweroff'")},
+	{ MODKEY|ShiftMask,          XK_r,                      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to reboot the system?' " "'loginctl reboot'")},
 
 	/* scripts */
-	{ MODKEY,                      XK_ccedilla,               spawn,          SHCMD("~/.local/bin/dmenuunicode")},
-    { MODKEY,                      XK_c,                      spawn,          SHCMD("caso-a-ana-quebre-meu-computador.sh")},
+	{ MODKEY,                    XK_ccedilla,               spawn,          SHCMD("~/.local/bin/dmenuunicode")},
+    { MODKEY,                  XK_c,                      spawn,          SHCMD("caso-a-ana-quebre-meu-computador.sh")},
 
 	{ MODKEY,	                   XK_b,                      togglebar,      {0} },
 	{ MODKEY,	                   XK_j,                      focusstack,     {.i = +1 } },
@@ -132,52 +135,26 @@ static const Key keys[] = {
 	{ MODKEY,	                   XK_Return,                 zoom,           {0} },
 	{ MODKEY,	                   XK_Tab,                    view,           {0} },
 
-	{ MODKEY|ShiftMask,	           XK_q,                      killclient,     {0} },
+	{ MODKEY|ShiftMask,	         XK_q,                      killclient,     {0} },
 	{ MODKEY,	                   XK_f,                      togglefullscr,  {0} },
 	{ MODKEY,	                   XK_t,                      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,	                   XK_m,                      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,	                   XK_space,                  setlayout,      {0} },
-	{ MODKEY|ShiftMask,	           XK_space,                  togglefloating, {0} },
+	{ MODKEY|ShiftMask,	         XK_space,                  togglefloating, {0} },
 	{ MODKEY,	                   XK_0,                      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,	           XK_0,                      tag,            {.ui = ~0 } },
+	{ MODKEY|ShiftMask,	         XK_0,                      tag,            {.ui = ~0 } },
 
 	/* Navigation between multi monitor setup */
 	{ MODKEY,	                   XK_comma,                  focusmon,       {.i = -1 } },
 	{ MODKEY,	                   XK_period,                 focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,	           XK_comma,                  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,	           XK_period,                 tagmon,         {.i = +1 } },
-    // { MODKEY,                      XK_r,                      xrdb,           {.v = NULL } },
+	{ MODKEY|ShiftMask,	         XK_comma,                  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,	         XK_period,                 tagmon,         {.i = +1 } },
 
-
-// +	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
-// +	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
-// +	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
-// +	{ MODKEY|Mod4Mask,              XK_u,      incrgaps,       {.i = +1 } },
-// +	{ MODKEY|Mod4Mask|ShiftMask,    XK_u,      incrgaps,       {.i = -1 } },
-// +	{ MODKEY|Mod4Mask,              XK_i,      incrigaps,      {.i = +1 } },
-// +	{ MODKEY|Mod4Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
-// +	{ MODKEY|Mod4Mask,              XK_o,      incrogaps,      {.i = +1 } },
-// +	{ MODKEY|Mod4Mask|ShiftMask,    XK_o,      incrogaps,      {.i = -1 } },
-// +	{ MODKEY|Mod4Mask,              XK_6,      incrihgaps,     {.i = +1 } },
-// +	{ MODKEY|Mod4Mask|ShiftMask,    XK_6,      incrihgaps,     {.i = -1 } },
-// +	{ MODKEY|Mod4Mask,              XK_7,      incrivgaps,     {.i = +1 } },
-// +	{ MODKEY|Mod4Mask|ShiftMask,    XK_7,      incrivgaps,     {.i = -1 } },
-// +	{ MODKEY|Mod4Mask,              XK_8,      incrohgaps,     {.i = +1 } },
-// +	{ MODKEY|Mod4Mask|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } },
-// +	{ MODKEY|Mod4Mask,              XK_9,      incrovgaps,     {.i = +1 } },
-// +	{ MODKEY|Mod4Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
-// +	{ MODKEY|Mod4Mask,              XK_0,      togglegaps,     {0} },
-// +	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
-
-	TAGKEYS(	                    XK_1,                      0)
-	TAGKEYS(	                    XK_2,                      1)
-	TAGKEYS(	                    XK_3,                      2)
-	TAGKEYS(	                    XK_4,                      3)
-	TAGKEYS(	                    XK_5,                      4)
-	TAGKEYS(	                    XK_6,                      5)
-	TAGKEYS(	                    XK_7,                      6)
-	TAGKEYS(	                    XK_8,                      7)
-	TAGKEYS(	                    XK_9,                      8)
+	TAGKEYS(	                   XK_1,                      0)
+	TAGKEYS(	                   XK_2,                      1)
+	TAGKEYS(	                   XK_3,                      2)
+	TAGKEYS(	                   XK_4,                      3)
+	TAGKEYS(	                   XK_5,                      4)
 };
 
 /* button definitions */
