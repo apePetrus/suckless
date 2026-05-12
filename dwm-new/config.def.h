@@ -7,7 +7,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]    = {"CaskaydiaCove Nerd Font Mono:style:medium:size=15"};
+static const char *fonts[]    = {"CaskaydiaCove Nerd Font Mono:style:medium:size=12"};
 static const char dmenufont[] =  "CaskaydiaCove Nerd Font Mono:pixelsize=15";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -77,6 +77,7 @@ static const Key keys[] = {
 
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,             XK_l,      spawn,          SHCMD("slock") },
 
   /* Brightness and audio */
   // TODO Gotta fix these audio cmd later
@@ -95,12 +96,12 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("keepassxc")},
 
   /* Quit, reboot, shutdown */
-	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("prompt 'Do you really want to quit?' 'killall dwm'")},
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("prompt 'Do you really want to shutdown the system?' " "'loginctl poweroff'")},
-	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("prompt 'Do you really want to reboot the system?' " "'loginctl reboot'")},
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to quit?' 'killall dwm'")},
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to shutdown the system?' " "'loginctl poweroff'")},
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("~/.local/bin/prompt 'Do you really want to reboot the system?' " "'loginctl reboot'")},
 
   /* Scripts */
-	{ MODKEY,                       XK_ccedilla, spawn,        SHCMD("dmenuunicode")},
+	{ MODKEY,                       XK_ccedilla, spawn,        SHCMD("~/.local/bin/dmenuunicode")},
 
   /* Navigation */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -119,7 +120,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
+	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 
