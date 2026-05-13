@@ -77,7 +77,7 @@ static const Key keys[] = {
 
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,             XK_l,      spawn,          SHCMD("slock") },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
 
   /* Brightness and audio */
   // TODO Gotta fix these audio cmd later
