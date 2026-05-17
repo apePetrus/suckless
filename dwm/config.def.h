@@ -33,6 +33,10 @@ static const Rule rules[] = {
 	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "librewolf", NULL,   NULL,           1 << 1,    0,          0,          -1,        -1 },
 	{ "zen",     NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
+	{ "net.lutris.Lutris", NULL,     NULL, 1 << 3,    0,          0,          -1,        -1 },
+	{ "steam",   NULL,     NULL,           1 << 3,    0,          0,          -1,        -1 },
+	{ "steam",   NULL,   "Lista de amigos",1 << 3,    1,          0,          -1,        -1 },
+	{ "steam",   NULL,   "Friends List",   1 << 3,    1,          0,          -1,        -1 },
 	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
