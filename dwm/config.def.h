@@ -86,9 +86,9 @@ static const Key keys[] = {
 
   /* Brightness and audio */
   // TODO Gotta fix these audio cmd later
-	{ MODKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("amixer -q sset Master 5%+    ; pkill -RTMIN+10 dwmblocks")},
-	{ MODKEY|ShiftMask,             XK_minus,  spawn,          SHCMD("amixer -q sset Master 5%-    ; pkill -RTMIN+10 dwmblocks")},
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("amixer -q sset Master toggle ; pkill -RTMIN+10 dwmblocks")},
+	{ MODKEY|ShiftMask,             XK_equal,  spawn,          SHCMD("~/.local/bin/volume --inc")},
+	{ MODKEY|ShiftMask,             XK_minus,  spawn,          SHCMD("~/.local/bin/volume --dec")},
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("~/.local/bin/volume --toggle")},
 	{ 0,                            LIGHTUP,   spawn,          SHCMD("brightnessctl s 5+")},
 	{ 0,                            LIGHTDOWN, spawn,          SHCMD("brightnessctl s 5-")},
 
